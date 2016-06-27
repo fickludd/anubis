@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.lth.immun.anubis</groupId>
   <artifactId>ReferenceFileCreator</artifactId>
-  <version>1.3.3</version>
+  <version>1.3.4</version>
   <inceptionYear>2011</inceptionYear>
   <name>Reference file creator</name>
   <properties>
@@ -10,8 +10,8 @@
     <short.name>ref-creator</short.name>
     <mainClass>se.lth.immun.anubis.ReferenceFileCreator</mainClass>
     <script.file>target/${short.name}</script.file>
-    <publicDeploy.jar>${publicDeploy.dir}/${build.finalName}.jar</publicDeploy.jar>
-    <selfContained.jar>${basedir}/target/${build.finalName}-jar-with-dependencies.jar</selfContained.jar>
+    <publicDeploy.jar>${publicDeploy.dir}/${project.build.finalName}.jar</publicDeploy.jar>
+    <selfContained.jar>${basedir}/target/${project.build.finalName}-jar-with-dependencies.jar</selfContained.jar>
   </properties>
   
   <dependencies>
@@ -31,8 +31,8 @@
     
     <dependency>
     	<groupId>org.scalatest</groupId>
-    	<artifactId>scalatest_2.10.0</artifactId>
-    	<version>2.0.M5</version>
+    	<artifactId>scalatest_2.10</artifactId>
+    	<version>2.1.7</version>
     	<scope>test</scope>
     </dependency>
     
@@ -116,6 +116,7 @@
       <plugin>
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
+        <version>2.15.2</version>
         <executions>
           <execution>
             <goals>
@@ -131,6 +132,7 @@
       
       <plugin>
         <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.10</version>
         <configuration>
           <downloadSources>true</downloadSources>
           <buildcommands>
@@ -149,7 +151,7 @@
       <plugin>
 	    <artifactId>maven-assembly-plugin</artifactId>
 	    <configuration>
-              <finalName>${artifactId}-${version}.free</finalName>
+              <finalName>${project.artifactId}-${project.version}.free</finalName>
               <appendAssemblyId>false</appendAssemblyId>
 	      <descriptorRefs>
 	        <descriptorRef>jar-with-dependencies</descriptorRef>

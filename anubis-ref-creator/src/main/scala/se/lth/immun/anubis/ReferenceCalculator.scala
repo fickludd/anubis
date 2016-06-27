@@ -81,8 +81,8 @@ object ReferenceCalculator {
         
         var measuredTDs = foundTDs.chromatograms.filter(_ != null)
         if (measuredTDs.length > 1) {
-        	var precursorSignal = measuredTDs.map(_.intensities).toArray
-        	
+        	var precursorSignal: Array[Array[Double]] = measuredTDs.map(_.intensities.toArray).toArray
+     
             var peak = peakFinder.findPeak(precursorSignal)
             
             var peakSignal = precursorSignal.map(f => slice(f, peak.start, peak.end, 4).toArray)

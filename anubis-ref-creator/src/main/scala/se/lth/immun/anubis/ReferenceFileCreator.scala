@@ -380,7 +380,7 @@ object ReferenceFileCreator extends SimpleSwingApplication with CLIApplication {
 						//ReferenceCalculator.calculate(referenceFile, handlePeptideUpdate)
 						peptideTable.repaint
 						
-						out = new XmlWriter(new FileWriter(outFile))
+						out = new XmlWriter(new FileWriter(outFile),() => 0L, () => "")
 						
 						if (!keepUnMeasured) {
 							var pcs = referenceFile.precursors 
@@ -690,7 +690,7 @@ object ReferenceFileCreator extends SimpleSwingApplication with CLIApplication {
 	def annotateChromatogram(rt:RetentionTime) = {
 		chromGraph.annotations = Nil
 		if (rt.start > 0 && rt.end > 0) {
-			var qTraces:Seq[Array[Double]] = getPart(rt.start, rt.end)
+			var qTraces:ArrayBuffer[Array[Double]] = getPart(rt.start, rt.end)
 			if (!qTraces(0).isEmpty) {
 				var max = qTraces.map(_.max).max
 				chromGraph.addAnnotation(new HeightBoxAnnotation(
@@ -710,7 +710,7 @@ object ReferenceFileCreator extends SimpleSwingApplication with CLIApplication {
 					tr.intensities.zip(tr.times)
 						.dropWhile(_._2 < start)
 						.takeWhile(_._2 < end)
-						.map(_._1))
+						.map(_._1).toArray)
 	}
 	
 	

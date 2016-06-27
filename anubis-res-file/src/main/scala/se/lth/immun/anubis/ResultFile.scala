@@ -10,40 +10,41 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import java.text.DateFormat
-import uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary
-import uk.ac.liv.jmzqml.model.mzqml.Assay
-import uk.ac.liv.jmzqml.model.mzqml.AssayList
-import uk.ac.liv.jmzqml.model.mzqml.Column
-import uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition
-import uk.ac.liv.jmzqml.model.mzqml.Cv
-import uk.ac.liv.jmzqml.model.mzqml.CvList
-import uk.ac.liv.jmzqml.model.mzqml.CvParam
-import uk.ac.liv.jmzqml.model.mzqml.CvParamRef
-import uk.ac.liv.jmzqml.model.mzqml.DataMatrix
-import uk.ac.liv.jmzqml.model.mzqml.DataProcessing
-import uk.ac.liv.jmzqml.model.mzqml.DataProcessingList
-import uk.ac.liv.jmzqml.model.mzqml.EvidenceRef
-import uk.ac.liv.jmzqml.model.mzqml.Feature
-import uk.ac.liv.jmzqml.model.mzqml.FeatureList
-import uk.ac.liv.jmzqml.model.mzqml.FileFormat
-import uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer
-import uk.ac.liv.jmzqml.model.mzqml.InputFiles
-import uk.ac.liv.jmzqml.model.mzqml.Label
-import uk.ac.liv.jmzqml.model.mzqml.MethodFile
-import uk.ac.liv.jmzqml.model.mzqml.MethodFiles
-import uk.ac.liv.jmzqml.model.mzqml.ModParam
-import uk.ac.liv.jmzqml.model.mzqml.MzQuantML
-import uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus
-import uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList
-import uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod
-import uk.ac.liv.jmzqml.model.mzqml.QuantLayer
-import uk.ac.liv.jmzqml.model.mzqml.RawFile
-import uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup
-import uk.ac.liv.jmzqml.model.mzqml.Row
-import uk.ac.liv.jmzqml.model.mzqml.Software
-import uk.ac.liv.jmzqml.model.mzqml.SoftwareList
-import uk.ac.liv.jmzqml.xml.io.MzQuantMLMarshaller
-import uk.ac.liv.jmzqml.model.mzqml.UserParam
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Assay
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Column
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ColumnDefinition
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Cv
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvList
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParamRef
+import uk.ac.liv.pgb.jmzqml.model.mzqml.DataMatrix
+import uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessing
+import uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList
+import uk.ac.liv.pgb.jmzqml.model.mzqml.EvidenceRef
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Feature
+import uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList
+import uk.ac.liv.pgb.jmzqml.model.mzqml.FileFormat
+import uk.ac.liv.pgb.jmzqml.model.mzqml.GlobalQuantLayer
+import uk.ac.liv.pgb.jmzqml.model.mzqml.IdOnly
+import uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Label
+import uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFile
+import uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFiles
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ModParam
+import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML
+import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensus
+import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ProcessingMethod
+import uk.ac.liv.pgb.jmzqml.model.mzqml.QuantLayer
+import uk.ac.liv.pgb.jmzqml.model.mzqml.RawFile
+import uk.ac.liv.pgb.jmzqml.model.mzqml.RawFilesGroup
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Row
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Software
+import uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList
+import uk.ac.liv.pgb.jmzqml.xml.io.MzQuantMLMarshaller
+import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam
 
 object ResultFile {
 	val MAIN_NODE = "results"
@@ -299,8 +300,8 @@ class ResultFile(
     peptideConsensusList.setFinalResult(true);
     var peptideList = peptideConsensusList.getPeptideConsensus();
     var assayQuantLayer = peptideConsensusList.getAssayQuantLayer()
-    var quantLayer = new QuantLayer()
-    var quantQualLayer = new QuantLayer()
+    var quantLayer: QuantLayer[IdOnly] = new QuantLayer()
+    var quantQualLayer: QuantLayer[IdOnly] = new QuantLayer()
     quantLayer.setId("pep_quant")
     quantQualLayer.setId("pep_quality")
     var cpPValue = new CvParamRef()
