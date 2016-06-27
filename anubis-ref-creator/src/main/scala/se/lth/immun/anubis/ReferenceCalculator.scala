@@ -43,7 +43,7 @@ object ReferenceCalculator {
 		xmzml.grouper.extractGroup(pc.mz, 0.001) match {
 			case Some(cg) => {
 				var all = pc.allTransitions.toArray
-				Some(cg.filter(all.map(_.mz), true, 0.05).resample)
+				Some(cg.filter(all.map(_.mz), true, 0.05).resample())
 			}
 			case None =>
 				None

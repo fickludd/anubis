@@ -14,14 +14,14 @@ class ReferenceFileWriteTest extends AssertionsForJUnit {
 
 	var s:StringWriter = null
 	var x:XmlWriter = null
-	
+/**	
 	@Before
 	def setupWriters() = {
 		s = new StringWriter()
 		x = new XmlWriter(s)
 	}
 	
-/**	@Test
+	@Test
 	def writeEmptyFile() = {
 		var rf = new ReferenceFile()
 		

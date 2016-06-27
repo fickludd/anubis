@@ -15,13 +15,13 @@ class ResultFileWriteTest extends AssertionsForJUnit {
 
 	var s:StringWriter = null
 	var x:XmlWriter = null
-	
+/**	
 	@Before
 	def setupWriters() = {
 		s = new StringWriter()
 		x = new XmlWriter(s)
 	}
-/**	
+	
 	@Test
 	def writeEmptyFile() = {
 		var rf = new ResultFile()
@@ -40,7 +40,7 @@ class ResultFileWriteTest extends AssertionsForJUnit {
 </results>
 """, s.toString)
 	}
-*/	
+	
 	@Test
 	def writeFile() = {
 	var rf = new ResultFile()
@@ -72,8 +72,8 @@ class ResultFileWriteTest extends AssertionsForJUnit {
 		
 		rf.write(x)
 		
-//		assertEquals("""<?xml version="1.0"?>
-/*<results>
+		assertEquals("""<?xml version="1.0"?>
+<results>
   <parameters count="1">
     <parameter name="a" value="1"/>
   </parameters>
@@ -103,6 +103,6 @@ class ResultFileWriteTest extends AssertionsForJUnit {
     </precursor>
   </precursors>
 </results>
-""", s.toString)*/
-	}
+""", s.toString)
+	}*/
 }

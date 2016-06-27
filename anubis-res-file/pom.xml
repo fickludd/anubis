@@ -2,10 +2,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.lth.immun</groupId>
   <artifactId>AnubisResultFile</artifactId>
-  <version>1.3.3</version>
+  <version>1.3.4</version>
   <inceptionYear>2011</inceptionYear>
   <properties>
-    <scala.version>2.10.0</scala.version>
+    <scala.version>2.10.3</scala.version>
   </properties>
   
   <dependencies>
@@ -32,7 +32,7 @@
     <dependency>
     	<groupId>se.lth.immun</groupId>
     	<artifactId>Xml</artifactId>
-    	<version>1.0.0</version>
+    	<version>1.2.1</version>
     </dependency>
         <dependency>
 		<groupId>uk.ac.liv</groupId>

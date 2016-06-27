@@ -171,7 +171,7 @@ object ReferenceFileCreator extends SimpleSwingApplication with CLIApplication {
 	
 	
 	def saveAndQuit() = {
-		out = new XmlWriter(new FileWriter(outFile))
+		out = new XmlWriter(new FileWriter(outFile),() => 0L, () => "")
 		if (!keepUnMeasured)
 			referenceFile.precursors = referenceFile.precursors.filter(_.measuredTransitions.length > 1)
 		referenceFile.write(out)

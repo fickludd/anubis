@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.lth.immun.anubis</groupId>
   <artifactId>ReferenceFileCreator</artifactId>
-  <version>1.3.2</version>
+  <version>1.3.3</version>
   <inceptionYear>2011</inceptionYear>
   <name>Reference file creator</name>
   <properties>
-    <scala.version>2.10.0</scala.version>
+    <scala.version>2.10.3</scala.version>
     <short.name>ref-creator</short.name>
     <mainClass>se.lth.immun.anubis.ReferenceFileCreator</mainClass>
     <script.file>target/${short.name}</script.file>
@@ -31,7 +31,7 @@
     
     <dependency>
     	<groupId>org.scalatest</groupId>
-    	<artifactId>scalatest_${scala.version}</artifactId>
+    	<artifactId>scalatest_2.10.0</artifactId>
     	<version>2.0.M5</version>
     	<scope>test</scope>
     </dependency>
@@ -44,12 +44,17 @@
     <dependency>
     	<groupId>se.lth.immun</groupId>
     	<artifactId>MzML</artifactId>
-    	<version>1.0.0</version>
+    	<version>1.3.3</version>
+    </dependency>
+    <dependency>
+        <groupId>se.lth.immun</groupId>
+        <artifactId>Xml</artifactId>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
         <groupId>se.lth.immun</groupId>
         <artifactId>TraML</artifactId>
-        <version>1.0.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
         <groupId>se.lth.immun</groupId>
@@ -59,12 +64,12 @@
     <dependency>
         <groupId>se.lth.immun</groupId>
         <artifactId>Signal</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
     <dependency>
     	<groupId>se.lth.immun</groupId>
     	<artifactId>App</artifactId>
-    	<version>1.0.0</version>
+    	<version>1.2.0</version>
     </dependency>
     <dependency>
     	<groupId>se.lth.immun</groupId>
@@ -84,7 +89,7 @@
     <dependency>
     	<groupId>se.lth.immun</groupId>
     	<artifactId>AnubisReferenceFile</artifactId>
-    	<version>1.6.0</version>
+    	<version>1.6.2</version>
     </dependency>
   </dependencies>
   

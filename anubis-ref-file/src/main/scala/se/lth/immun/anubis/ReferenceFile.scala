@@ -163,7 +163,7 @@ class ReferenceFile(
 	def write(w:XmlWriter) {
     	import ReferenceFile._
     	
-        w.startDocument()
+        w.startDocument
         w.startElement(MAIN_NODE)
 
         w.startListElement(FILES, files)
@@ -182,6 +182,6 @@ class ReferenceFile(
         w.endElement()
             
         w.endElement()
-        w.endDocument()
+        w.endDocument
     }
 }

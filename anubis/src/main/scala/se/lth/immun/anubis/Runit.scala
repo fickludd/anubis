@@ -152,7 +152,7 @@ class Runit extends Actor {
         val mzqFileName = run.outputPath+".res.mzq"
 	    
 	    compileResultFile(run, dict)
-	    run.resultFile.write(new XmlWriter(new BufferedWriter(new FileWriter(outputXMLFile))))
+	    run.resultFile.write(new XmlWriter(new BufferedWriter(new FileWriter(outputXMLFile)),() => 0L, () => ""))
 	    run.resultFile.writeMzq(mzqFileName)	
 		client ! Msg("Converting results from xml to csv format...\n")
 		client ! Msg("  result xml file: " + outputXMLFile + "\n")

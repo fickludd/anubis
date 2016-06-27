@@ -20,12 +20,14 @@ def mvn(x):
 	os.chdir("..")
 	
 if cmd == "install" or cmd == "clean" or cmd == "test":
-	mvn("AnubisResultFile")
-	mvn("AnubisReferenceFile")
-	mvn("AnubisResultAnalysis")
-	mvn("AnubisLib")
-	mvn("Anubis")
-	mvn("ReferenceFileCreator")
+	mvn("anubis-res-file")
+	mvn("anubis-ref-file")
+	mvn("anubis-lib")
+	mvn("anubis-heat-mapper")
+        mvn("App")
+        mvn("JavaSwingExtensions")
+	mvn("anubis")
+	mvn("anubis-ref-creator")
 else:
 	print "unknown mvn command '%s'" % cmd
 	exit(1)
