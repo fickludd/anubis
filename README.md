@@ -1,6 +1,6 @@
 # Anubis
 This repository contains the Anubis tool for automated analysis of SRM data.
-More info and downloads can be found at http://quantitativeprotoemics.org/anubis 
+More info and downloads can be found at http://quantitativeproteomics.org/anubis 
 
 ## Downloading
 The latest release can be found under 'releases'
